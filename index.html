@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6f4597">
+<title>Día de la Juventud | Sociedad de Jóvenes LEMUEL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#70439c;--purple2:#8e68b1;--ink:#27202f;--gold:#c69d3a;
+  --cream:#fbf8f2;--lilac:#eee7f4;--line:#dfd2e8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:"DM Sans",sans-serif;background:#eee8f2;overflow-x:hidden}
+button,a{font:inherit}
+body:before{content:"";position:fixed;inset:-5%;z-index:-5;
+ background:linear-gradient(135deg,rgba(76,50,94,.28),rgba(255,251,244,.55) 48%,rgba(68,89,112,.24)),
+ url('fotos/culto.jpg') center/cover no-repeat;filter:blur(7px);transform:scale(1.08);
+ animation:bgMove 20s ease-in-out infinite alternate;pointer-events:none}
+body:after{content:"";position:fixed;inset:0;z-index:-4;
+ background:radial-gradient(circle at 15% 20%,rgba(198,157,58,.12),transparent 28%),
+ linear-gradient(180deg,rgba(255,255,255,.30),rgba(245,238,249,.62));pointer-events:none}
+@keyframes bgMove{from{transform:scale(1.08) translate3d(-1%,0,0)}to{transform:scale(1.15) translate3d(1%,-1%,0)}}
+
+.music-btn{position:fixed;right:18px;top:18px;z-index:30;display:none;align-items:center;gap:7px;
+ padding:10px 15px;border:1px solid rgba(255,255,255,.65);border-radius:999px;background:rgba(112,67,156,.82);
+ color:#fff;backdrop-filter:blur(8px);box-shadow:0 8px 22px rgba(45,25,58,.18);cursor:pointer;font-size:12px;font-weight:700}
+.music-btn.show{display:flex}.music-btn.paused{background:rgba(55,45,64,.78)}
+.cover{position:fixed;inset:0;z-index:20;display:grid;place-items:center;text-align:center;color:#fff;
+ background:linear-gradient(135deg,rgba(49,38,60,.82),rgba(112,67,156,.66)),url('fotos/culto.jpg') center/cover;
+ transition:opacity .75s ease,visibility .75s ease}
+.cover.hide{opacity:0;visibility:hidden;pointer-events:none}
+.cover>div{padding:35px 22px;max-width:720px}
+.cover small{letter-spacing:4px;font-size:12px}
+.cover h1{font:italic 56px "Playfair Display",serif;line-height:1.05;margin:22px 0 12px}
+.cover p{font:20px "Playfair Display",serif;margin:0 0 28px}
+.open{padding:15px 29px;border:1px solid rgba(255,255,255,.75);border-radius:99px;
+ background:rgba(255,255,255,.14);backdrop-filter:blur(7px);color:#fff;font-weight:700;cursor:pointer;
+ box-shadow:0 12px 30px rgba(0,0,0,.16);transition:.25s}
+.open:hover{transform:translateY(-3px);background:rgba(255,255,255,.23)}
+
+.wrap{min-height:100vh;padding:25px 15px 60px;display:grid;place-items:center;position:relative}
+.wrap:before,.wrap:after{content:"";position:fixed;z-index:-2;border:1px solid rgba(255,255,255,.6);animation:float 12s ease-in-out infinite alternate}
+.wrap:before{width:210px;height:210px;border-radius:50%;top:6%;right:5%}
+.wrap:after{width:160px;height:160px;border-radius:40% 60% 55% 45%;bottom:7%;left:4%;animation-delay:-4s}
+@keyframes float{to{transform:translate3d(28px,-20px,0) scale(1.08) rotate(8deg)}}
+
+.card{width:min(780px,100%);background:rgba(255,255,255,.90);backdrop-filter:blur(12px);
+ border:1px solid rgba(255,255,255,.8);border-radius:32px;overflow:hidden;
+ box-shadow:0 28px 90px rgba(70,42,87,.20)}
+.hero{position:relative;min-height:470px;display:flex;align-items:flex-end;overflow:hidden;color:#fff}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+.hero:after{content:"";position:absolute;inset:0;background:
+ linear-gradient(180deg,rgba(40,28,51,.05),rgba(55,33,70,.72) 72%,rgba(55,33,70,.92))}
+.hero-content{position:relative;z-index:1;padding:42px 34px 34px;width:100%}
+.eyebrow{letter-spacing:3px;font-size:12px;font-weight:700;color:#f2dfad}
+.hero h2{font:600 52px/1.02 "Playfair Display",serif;margin:8px 0 0}
+.hero .script{font:italic 64px/1 "Playfair Display",serif;color:#f0d99c}
+.hero .verse{font:18px/1.55 Georgia,serif;max-width:650px;margin:22px 0 0}
+.ref{color:#f0d99c;font-weight:700}
+.scroll-note{display:inline-block;margin-top:22px;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.9}
+
+.inner{padding:42px 28px;background:linear-gradient(135deg,rgba(255,253,251,.96),rgba(248,244,251,.94) 58%,rgba(251,248,241,.96))}
+.section{padding:4px 0 32px}
+.center{text-align:center}
+.gold-line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:6px 0 32px}
+.dateTitle{font:italic 29px "Playfair Display",serif;color:var(--purple)}
+.badge{display:inline-block;background:var(--purple);color:#fff;padding:9px 28px;border-radius:99px;margin:12px 0 8px;font-weight:700;letter-spacing:1px}
+.date{font:42px "Playfair Display",serif}.date i{color:var(--gold);font-style:normal}
+.label{margin:25px 0 12px;color:var(--purple);font-weight:700;letter-spacing:3px;font-size:12px}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.time{padding:16px 8px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.74)}
+.num{font-size:32px;font-weight:700;color:var(--gold)}.unit{font-size:10px;text-transform:uppercase;color:#777;letter-spacing:1px}
+.loc{font:29px "Playfair Display",serif;margin:8px}.addr{color:#6e6675}
+.buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:99px;text-decoration:none;font-weight:700;cursor:pointer;border:0}
+.primary{background:var(--purple);color:#fff;box-shadow:0 8px 20px rgba(112,67,156,.18)}
+.secondary{border:1px solid #cdb9dc;color:var(--purple);background:#fff}
+.btn:hover{transform:translateY(-2px)}
+
+.intro{font:italic 26px "Playfair Display",serif;color:var(--purple);text-align:center;margin:10px 0 26px}
+.gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
+.photo{position:relative;min-height:210px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.8);box-shadow:0 12px 28px rgba(58,37,70,.12)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.photo:hover img{transform:scale(1.045)}
+.photo.big{grid-row:span 2;min-height:440px}
+.photo figcaption{position:absolute;left:12px;bottom:12px;right:12px;color:#fff;font-size:12px;font-weight:600;
+ padding:9px 12px;border-radius:12px;background:rgba(35,25,42,.45);backdrop-filter:blur(5px)}
+
+.highlight{margin:35px 0;padding:30px 22px;border-radius:26px;
+ background:linear-gradient(135deg,rgba(112,67,156,.94),rgba(139,102,175,.92));color:#fff;text-align:center;position:relative;overflow:hidden}
+.highlight:before,.highlight:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.18);border-radius:50%}
+.highlight:before{width:180px;height:180px;right:-70px;top:-90px}.highlight:after{width:140px;height:140px;left:-70px;bottom:-80px}
+.highlight h3{font:italic 30px "Playfair Display",serif;margin:0 0 8px}
+.highlight p{margin:0;line-height:1.6;color:#f8f1ff}
+
+.rsvp{padding:27px;border:1px solid #e1d7e6;border-radius:24px;background:rgba(255,255,255,.72)}
+.rsvp h3{font:30px "Playfair Display",serif;text-align:center;margin:0 0 5px}
+.rsvp .sub{text-align:center;color:#777;font-size:13px}
+.form{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:17px}
+input,select{height:46px;border:1px solid #d9cde2;border-radius:12px;padding:0 13px;font:inherit;background:#fff;min-width:180px}
+.footer{text-align:center;margin-top:28px;font:italic 22px "Playfair Display",serif;color:var(--purple)}
+.small-contact{text-align:center;color:#888;font-size:11px;margin-top:10px}
+
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:none}
+
+@media(max-width:560px){
+ .cover h1{font-size:46px}.cover p{font-size:17px}
+ .hero{min-height:520px}.hero-content{padding:32px 22px}
+ .hero h2{font-size:43px}.hero .script{font-size:52px}.hero .verse{font-size:16px}
+ .inner{padding:35px 17px}.date{font-size:36px}.count{gap:6px}.time{padding:13px 3px}.num{font-size:25px}
+ .gallery{grid-template-columns:1fr 1fr}.photo.big{grid-row:span 2;min-height:350px}
+ .photo{min-height:170px}.loc{font-size:24px}
+ input,select{width:100%}.form .btn{width:100%}
+}
+</style>
+</head>
+<body>
+<audio id="bgMusic" src="musica.mp3" loop preload="auto"></audio>
+<button id="musicBtn" class="music-btn" aria-label="Pausar música">♫ <span>Música</span></button>
+
+<!-- PANTALLA INICIAL: SE CONSERVA LA IDEA ORIGINAL -->
+<div class="cover" id="cover">
+  <div>
+    <small>SOCIEDAD DE JÓVENES LEMUEL</small>
+    <h1>Una invitación<br>especial</h1>
+    <p>Tienes un lugar preparado para ti</p>
+    <button class="open" onclick="openInvite()">✦ ABRE TU INVITACIÓN ✦</button>
+  </div>
+</div>
+
+<div class="wrap">
+<main class="card">
+
+  <!-- SEGUNDA PANTALLA: NUEVO DISEÑO -->
+  <section class="hero reveal">
+    <img src="fotos/juventud.jpg" alt="Sociedad de Jóvenes LEMUEL">
+    <div class="hero-content">
+      <div class="eyebrow">SOCIEDAD DE JÓVENES LEMUEL</div>
+      <h2>¡DÍA DE LA</h2>
+      <div class="script">Juventud!</div>
+      <div class="verse">“¡Fíjense qué gran amor nos ha dado el Padre, que se nos llame hijos de Dios! ¡Y lo somos!”<br>
+        <span class="ref">1 JUAN 3:1</span>
+      </div>
+      <span class="scroll-note">Desliza para descubrir la invitación ↓</span>
+    </div>
+  </section>
+
+  <section class="inner">
+
+    <div class="section center reveal">
+      <div class="gold-line"></div>
+      <div class="dateTitle">Aparta la fecha</div>
+      <div class="badge">SÁBADO</div>
+      <div class="date">29 <i>|</i> 08 <i>|</i> 2026</div>
+      <div class="label">FALTAN</div>
+      <div class="count">
+        <div class="time"><div class="num" id="d">--</div><div class="unit">Días</div></div>
+        <div class="time"><div class="num" id="h">--</div><div class="unit">Horas</div></div>
+        <div class="time"><div class="num" id="m">--</div><div class="unit">Minutos</div></div>
+        <div class="time"><div class="num" id="s">--</div><div class="unit">Segundos</div></div>
+      </div>
+    </div>
+
+    <div class="section center reveal">
+      <div class="gold-line"></div>
+      <div class="loc">⌖ IGLESIA “SOL DE JUSTICIA”</div>
+      <div class="addr">Calle 24 de Mayo y Chimborazo</div>
+      <div class="buttons">
+        <a class="btn primary" href="https://maps.app.goo.gl/uQVNFntDQ2ooy7MTA" target="_blank" rel="noopener">📍 VER MAPA</a>
+      </div>
+    </div>
+
+    <div class="section reveal">
+      <div class="intro">Un momento para encontrarnos, compartir y celebrar juntos.</div>
+      <div class="gallery">
+        <figure class="photo big"><img src="fotos/culto.jpg" alt="Culto"><figcaption>Una familia que adora unida</figcaption></figure>
+        <figure class="photo"><img src="fotos/predica.jpg" alt="Predicación"><figcaption>Palabra que transforma</figcaption></figure>
+        <figure class="photo"><img src="fotos/alabanza.jpg" alt="Alabanza"><figcaption>Adoración y servicio</figcaption></figure>
+        <figure class="photo"><img src="fotos/oracion.jpg" alt="Oración"><figcaption>Juntos en oración</figcaption></figure>
+        <figure class="photo"><img src="fotos/juventud.jpg" alt="Juventud"><figcaption>Una generación con propósito</figcaption></figure>
+        <figure class="photo" style="grid-column:1/-1;min-height:260px"><img src="fotos/convivencia.jpg" alt="Convivencia"><figcaption>También celebramos la amistad y la comunión</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="highlight reveal">
+      <h3>Una noche para recordar</h3>
+      <p>Queremos compartir contigo un tiempo especial de fe, comunión, alegría y propósito. Tu presencia hará parte de esta historia.</p>
+    </div>
+
+    <div class="rsvp reveal">
+      <h3>¿Nos acompañas?</h3>
+      <div class="sub">Confirma tu asistencia para saber que contamos contigo.</div>
+      <div class="form">
+        <input id="name" placeholder="Tu nombre" autocomplete="name">
+        <select id="att">
+          <option>Sí, allí estaré 🙌</option>
+          <option>No podré asistir</option>
+        </select>
+        <button class="btn primary" onclick="confirmar()">CONFIRMAR</button>
+      </div>
+      <div class="small-contact">También puedes escribir al 099 997 9802 o 098 005 8459.</div>
+    </div>
+
+    <div class="footer reveal">Tu presencia es importante para nosotros,<br>¡te esperamos!</div>
+  </section>
+</main>
+</div>
+
+<script>
+const music=document.getElementById('bgMusic');
+const musicBtn=document.getElementById('musicBtn');
+function openInvite(){
+  document.getElementById('cover').classList.add('hide');
+  musicBtn.classList.add('show');
+  music.play().then(()=>updateMusicButton()).catch(()=>updateMusicButton());
+  setTimeout(()=>document.querySelector('.hero').classList.add('show'),180);
+}
+function updateMusicButton(){
+  const playing=!music.paused;
+  musicBtn.classList.toggle('paused',!playing);
+  musicBtn.innerHTML=playing ? '♫ <span>Música: ON</span>' : '♫ <span>Música: OFF</span>';
+  musicBtn.setAttribute('aria-label',playing?'Pausar música':'Reproducir música');
+}
+musicBtn.addEventListener('click',()=>{
+  if(music.paused) music.play(); else music.pause();
+  updateMusicButton();
+});
+const target=new Date('2026-08-29T19:00:00-05:00').getTime();
+function tick(){
+  let x=target-Date.now(); if(x<0)x=0;
+  document.getElementById('d').textContent=Math.floor(x/864e5);
+  document.getElementById('h').textContent=String(Math.floor(x%864e5/36e5)).padStart(2,'0');
+  document.getElementById('m').textContent=String(Math.floor(x%36e5/6e4)).padStart(2,'0');
+  document.getElementById('s').textContent=String(Math.floor(x%6e4/1e3)).padStart(2,'0');
+}
+setInterval(tick,1000); tick();
+
+function confirmar(){
+  const n=document.getElementById('name').value.trim();
+  if(!n){alert('Escribe tu nombre');return}
+  const msg=encodeURIComponent('Hola, soy '+n+'. '+document.getElementById('att').value+' al Día de la Juventud de Sol de Justicia.');
+  location.href='https://wa.me/593999979802?text='+msg;
+}
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
