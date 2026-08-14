@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#5c397b">
+<title>Día de la Juventud | Sociedad de Jóvenes LEMUEL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --violet:#68418f; --violet2:#8e68b1; --deep:#38244b;
+  --gold:#c9a14a; --gold2:#e6c978; --cream:#fcfaf7;
+  --ink:#241c2c; --muted:#6e6675; --line:#e5d8eb;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#eee8f3;color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+button,a{font:inherit}
+body:before{
+  content:"";position:fixed;inset:-8%;z-index:-5;
+  background:
+    radial-gradient(circle at 10% 20%,rgba(201,161,74,.14),transparent 25%),
+    radial-gradient(circle at 90% 70%,rgba(142,104,177,.18),transparent 30%),
+    linear-gradient(135deg,#f8f2f9,#efe6f4 50%,#f8f4ee);
+  animation:floatbg 18s ease-in-out infinite alternate;
+}
+@keyframes floatbg{from{transform:scale(1)}to{transform:scale(1.08) translate3d(1%,-1%,0)}}
+
+/* PORTADA: se mantiene como la invitación inicial */
+.cover{
+  position:fixed;inset:0;z-index:50;display:grid;place-items:center;
+  padding:25px;background:
+  linear-gradient(135deg,rgba(44,31,56,.88),rgba(104,65,143,.68)),
+  url("fotos/culto.jpg") center/cover;
+  color:white;transition:.8s ease;
+}
+.cover.hide{opacity:0;visibility:hidden;pointer-events:none}
+.cover-inner{text-align:center;max-width:780px;padding:25px}
+.cover-brand{letter-spacing:5px;font-size:12px;color:#f1d98f;font-weight:700}
+.cover h1{font:600 68px/1.02 "Playfair Display",serif;margin:20px 0 10px}
+.cover h1 em{display:block;color:#e6c978;font-size:1.08em}
+.cover p{font:20px/1.5 "Playfair Display",serif;max-width:650px;margin:20px auto}
+.cover .verse{display:inline-block;padding:7px 22px;border-radius:30px;background:#6d4791;font-weight:700}
+.open{
+  margin-top:30px;border:1px solid rgba(255,255,255,.9);border-radius:999px;
+  padding:17px 34px;background:linear-gradient(90deg,#9c54a7,#74459b);
+  color:#fff;font-weight:800;letter-spacing:.3px;cursor:pointer;
+  box-shadow:0 15px 45px rgba(0,0,0,.28);transition:.25s;
+}
+.open:hover{transform:translateY(-3px) scale(1.02)}
+.cover-arrow{margin-top:25px;font-size:28px;animation:bounce 1.7s infinite}
+@keyframes bounce{50%{transform:translateY(7px)}}
+
+/* INVITACIÓN ABIERTA */
+.page{width:min(1100px,100%);margin:auto;background:rgba(255,253,250,.94);box-shadow:0 20px 70px rgba(62,40,78,.15);overflow:hidden}
+.section{padding:70px 7%}
+.goldline{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 0 42px}
+.kicker{text-transform:uppercase;letter-spacing:4px;color:var(--violet);font-weight:800;font-size:12px}
+.serif{font-family:"Playfair Display",serif}
+.hero-open{
+  position:relative;min-height:680px;padding:70px 6% 45px;
+  background:
+    linear-gradient(180deg,rgba(247,240,247,.80),rgba(255,252,248,.93) 70%),
+    url("fotos/culto.jpg") center/cover;
+}
+.hero-open:before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 8% 10%,rgba(142,104,177,.32),transparent 22%),
+    radial-gradient(circle at 92% 20%,rgba(230,201,120,.27),transparent 22%);
+  pointer-events:none;
+}
+.hero-copy{position:relative;text-align:center;max-width:820px;margin:auto}
+.hero-copy h2{font:600 74px/.92 "Playfair Display",serif;color:#39234e;margin:18px 0 0}
+.hero-copy h2 em{display:block;font-size:1.02em;color:#8151a5;font-weight:500}
+.hero-copy .verse{font:18px/1.45 "Playfair Display",serif;margin:28px auto 12px;max-width:700px}
+.hero-copy .ref{font-weight:800;color:var(--violet)}
+
+.photo-collage{
+  position:relative;margin:45px auto 0;max-width:1000px;height:355px;
+  display:grid;grid-template-columns:1.1fr .95fr 1.1fr;gap:10px;
+}
+.photo{
+  position:relative;overflow:hidden;border:3px solid white;border-radius:24px;
+  box-shadow:0 16px 30px rgba(54,35,67,.18);transform:rotate(-1.2deg);
+}
+.photo:nth-child(2){transform:rotate(1deg) translateY(8px)}
+.photo:nth-child(3){transform:rotate(-.7deg) translateY(2px)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.photo:hover img{transform:scale(1.06)}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(38,23,48,.25))}
+.gold-swoosh{height:4px;width:85%;margin:-4px auto 0;background:linear-gradient(90deg,transparent,var(--gold2),var(--gold),transparent);border-radius:100%;filter:blur(.2px)}
+
+.date-section{text-align:center;background:linear-gradient(180deg,#fffdf9,#f7f0f9)}
+.date-title{font:italic 40px "Playfair Display",serif;color:#7c4ba3;margin:0 0 20px}
+.day-pill{display:inline-block;background:var(--violet);color:#fff;border-radius:999px;padding:10px 30px;font-weight:800;letter-spacing:1px}
+.date-big{font:56px "Playfair Display",serif;margin:18px 0 34px;color:#2f2336}
+.date-big span{color:var(--gold);padding:0 18px}
+.count-label{text-transform:uppercase;letter-spacing:5px;color:var(--violet);font-weight:800;font-size:12px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;max-width:850px;margin:15px auto 0}
+.countbox{background:rgba(255,255,255,.72);border:1px solid #dfd1e8;border-radius:20px;padding:20px 8px;box-shadow:0 10px 25px rgba(77,49,95,.06)}
+.countbox strong{display:block;color:var(--violet);font:42px "Playfair Display",serif}
+.countbox small{color:#817987;letter-spacing:1.5px;font-size:11px}
+
+.location{display:grid;grid-template-columns:1fr 1.25fr;gap:35px;align-items:center}
+.location-card{padding:30px;border:1px solid var(--line);border-radius:28px;background:#fff}
+.location h3{font:42px "Playfair Display",serif;margin:8px 0;color:#33243d}
+.location p{color:var(--muted);font-size:17px}
+.mapbtn{display:inline-block;text-decoration:none;margin-top:14px;padding:14px 25px;border-radius:999px;background:var(--violet);color:#fff;font-weight:800;box-shadow:0 10px 24px rgba(104,65,143,.22)}
+.location-photo{border-radius:30px;overflow:hidden;border:4px solid white;box-shadow:0 18px 38px rgba(50,33,62,.15)}
+.location-photo img{display:block;width:100%;height:330px;object-fit:cover}
+
+.rsvp{margin:0 5% 65px;padding:45px 7%;border-radius:34px;background:linear-gradient(135deg,#38234c,#71459a);color:#fff;position:relative;overflow:hidden}
+.rsvp:after{content:"✦  ·  ✦  ·  ✦";position:absolute;right:25px;top:18px;color:#e8cb7c;letter-spacing:12px;opacity:.65}
+.rsvp h3{text-align:center;font:italic 42px "Playfair Display",serif;margin:0 0 8px}
+.rsvp p{text-align:center;opacity:.85;margin:0 0 25px}
+.form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+input,select{height:50px;border:0;border-radius:13px;padding:0 16px;min-width:210px;font:inherit}
+.confirm{height:50px;border:0;border-radius:999px;padding:0 25px;background:#e3bf67;color:#3b2948;font-weight:900;cursor:pointer}
+.notice{text-align:center;font-size:12px;margin-top:14px;opacity:.75}
+
+footer{text-align:center;padding:35px;color:#786a7d;font-size:12px;letter-spacing:3px}
+footer b{color:var(--violet)}
+
+@media(max-width:720px){
+  .cover h1{font-size:48px}.cover p{font-size:17px}
+  .hero-open{min-height:auto;padding-top:48px}
+  .hero-copy h2{font-size:52px}
+  .photo-collage{height:auto;grid-template-columns:1fr 1fr}
+  .photo{height:190px}.photo:first-child{grid-column:span 2;height:230px}
+  .date-big{font-size:42px}.date-big span{padding:0 8px}
+  .countdown{grid-template-columns:repeat(2,1fr)}
+  .location{grid-template-columns:1fr}.location-photo img{height:260px}
+  .rsvp h3{font-size:34px}
+  .section{padding:52px 5%}
+}
+</style>
+</head>
+<body>
+
+<div class="cover" id="cover">
+  <div class="cover-inner">
+    <div class="cover-brand">SOCIEDAD DE JÓVENES LEMUEL</div>
+    <h1>Te invita al<br><em>Día de la Juventud</em></h1>
+    <p>“¡Fíjense qué gran amor nos ha dado el Padre, que se nos llame hijos de Dios! ¡Y lo somos!”</p>
+    <span class="verse">1 JUAN 3:1</span><br>
+    <button class="open" onclick="openInvitation()">✉️ &nbsp; ABRE TU INVITACIÓN</button>
+    <div class="cover-arrow">⌄</div>
+  </div>
+</div>
+
+<main class="page" id="invitation">
+  <section class="hero-open">
+    <div class="hero-copy">
+      <div class="kicker">SOCIEDAD DE JÓVENES LEMUEL</div>
+      <h2>Te invita al<br><em>Día de la Juventud</em></h2>
+      <div class="verse">“¡Fíjense qué gran amor nos ha dado el Padre, que se nos llame hijos de Dios! ¡Y lo somos!”</div>
+      <div class="ref">1 JUAN 3:1</div>
+    </div>
+
+    <div class="photo-collage">
+      <div class="photo"><img src="fotos/oracion.jpg" alt="Juventud reunida"></div>
+      <div class="photo"><img src="fotos/predica.jpg" alt="Predicación"></div>
+      <div class="photo"><img src="fotos/juventud.jpg" alt="Juventud"></div>
+    </div>
+    <div class="gold-swoosh"></div>
+  </section>
+
+  <section class="section date-section">
+    <div class="goldline"></div>
+    <div class="date-title">Aparta la fecha</div>
+    <div class="day-pill">SÁBADO</div>
+    <div class="date-big">29 <span>|</span> 08 <span>|</span> 2026</div>
+    <div class="count-label">FALTAN</div>
+    <div class="countdown">
+      <div class="countbox"><strong id="days">--</strong><small>DÍAS</small></div>
+      <div class="countbox"><strong id="hours">--</strong><small>HORAS</small></div>
+      <div class="countbox"><strong id="minutes">--</strong><small>MINUTOS</small></div>
+      <div class="countbox"><strong id="seconds">--</strong><small>SEGUNDOS</small></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="location">
+      <div class="location-card">
+        <div class="kicker">IGLESIA</div>
+        <h3>“SOL DE JUSTICIA”</h3>
+        <p>Calle 24 de Mayo y Chimborazo</p>
+        <a class="mapbtn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/uQVNFntDQ2ooy7MTA">📍 &nbsp; VER MAPA</a>
+      </div>
+      <div class="location-photo">
+        <img src="fotos/alabanza.jpg" alt="Ministerio de alabanza">
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp">
+    <h3>¿Nos acompañas?</h3>
+    <p>Confirma tu asistencia para saber que contamos contigo.</p>
+    <form class="form" onsubmit="confirmAttendance(event)">
+      <input id="name" required placeholder="Tu nombre">
+      <select id="attendance">
+        <option>Sí, allí estaré 🙌</option>
+        <option>Lo intentaré</option>
+        <option>No podré asistir</option>
+      </select>
+      <button class="confirm">✓ &nbsp; CONFIRMAR</button>
+    </form>
+    <div class="notice">También puedes escribir al 099 997 9802 o 098 005 8459.</div>
+  </section>
+
+  <footer>✦ &nbsp; <b>SOCIEDAD DE JÓVENES LEMUEL</b> &nbsp; ✦</footer>
+</main>
+
+<script>
+function openInvitation(){
+  document.getElementById("cover").classList.add("hide");
+  setTimeout(()=>document.getElementById("invitation").scrollIntoView({behavior:"smooth"}),250);
+}
+const target = new Date("2026-08-29T19:30:00-05:00").getTime();
+function tick(){
+  let d=target-Date.now();
+  if(d<0)d=0;
+  const day=Math.floor(d/86400000); d%=86400000;
+  const hr=Math.floor(d/3600000); d%=3600000;
+  const min=Math.floor(d/60000); d%=60000;
+  const sec=Math.floor(d/1000);
+  document.getElementById("days").textContent=String(day).padStart(2,"0");
+  document.getElementById("hours").textContent=String(hr).padStart(2,"0");
+  document.getElementById("minutes").textContent=String(min).padStart(2,"0");
+  document.getElementById("seconds").textContent=String(sec).padStart(2,"0");
+}
+tick(); setInterval(tick,1000);
+
+function confirmAttendance(e){
+  e.preventDefault();
+  const name=document.getElementById("name").value.trim();
+  const att=document.getElementById("attendance").value;
+  if(!name)return;
+  const msg=`Hola, soy ${name}. Sobre el Día de la Juventud: ${att}.`;
+  window.open("https://wa.me/593999979802?text="+encodeURIComponent(msg),"_blank");
+}
+</script>
+</body>
+</html>
